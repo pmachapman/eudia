@@ -19,7 +19,7 @@ End If
 
 ' If we have an API key, store the values
 If lStationId > 0 Then
-	sSql = "INSERT INTO Observation (StationId, Recorded, Temperature1, Temperature2, Temperature3, Pressure, Humidity) VALUES (" & lStationId & ", " & CDbl(Request.Form("recorded")) & ", " & CDbl(Request.Form("temperature1")) & ", " & CDbl(Request.Form("temperature2")) & ", " & CDbl(Request.Form("temperature3")) & ", " & CDbl(Request.Form("pressure")) & ", " & CDbl(Request.Form("humidity")) & ")"
+	sSql = "INSERT INTO Observation (StationId, Recorded, Temperature1, Temperature2, Temperature3, Pressure, Humidity) VALUES (" & lStationId & ", '" & Replace(Request.Form("recorded"), "'", "''") & "', " & CDbl(Request.Form("temperature1")) & ", " & CDbl(Request.Form("temperature2")) & ", " & CDbl(Request.Form("temperature3")) & ", " & CDbl(Request.Form("pressure")) & ", " & CDbl(Request.Form("humidity")) & ")"
 	oConnection.Execute sSql
 End If
 
